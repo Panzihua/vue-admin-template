@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-container">
     <div class="dashboard-text">name: {{ name }}</div>
+    <el-button @click="handleClick()">aaa</el-button>
   </div>
 </template>
 
@@ -10,9 +11,13 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Dashboard',
   computed: {
-    ...mapGetters([
-      'name'
-    ])
+    ...mapGetters(['name'])
+  },
+  methods: {
+    handleClick() {
+      this.$store
+        .dispatch('app/testApi', null)
+    }
   }
 }
 </script>

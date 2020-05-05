@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { testApi } from '@/api/user'
 
 const state = {
   sidebar: {
@@ -37,6 +38,15 @@ const actions = {
   },
   toggleDevice({ commit }, device) {
     commit('TOGGLE_DEVICE', device)
+  },
+  testApi({ commit }) {
+    return new Promise((resolve, reject) => {
+      testApi().then(response => {
+        console.log('testApi')
+      }).catch(error => {
+        reject(error)
+      })
+    })
   }
 }
 
